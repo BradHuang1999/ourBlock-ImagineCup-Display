@@ -1,0 +1,33 @@
+{
+  "name": "ourblock-display",
+  "version": "1.0.0",
+  "description": "The vue frontend for the ourBlock project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BradHuang1999/ourBlock-ImagineCup-Display.git"
+  },
+  "keywords": [
+    "crime",
+    "wore2vec",
+    "nlp",
+    "distributed",
+    "database",
+    "TechCrunch",
+    "safety",
+    "community"
+  ],
+  "author": "Brad Huang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BradHuang1999/ourBlock-ImagineCup-Display/issues"
+  },
+  "homepage": "https://github.com/BradHuang1999/ourBlock-ImagineCup-Display#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "serve-static": "^1.13.2"
+  }
+}
