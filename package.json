@@ -4,7 +4,8 @@
   "description": "The vue frontend for the ourBlock project",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && cd police-view && npm install && npm run build && cd .. && node index.js",
+    "build": "npm install && cd police-view && npm install && npm run build && cd ..",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
