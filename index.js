@@ -1,3 +1,7 @@
+const appInsights = require("applicationinsights");
+appInsights.setup("8a3dcbec-b519-4eda-acbe-2cddaa910f73");
+appInsights.start();
+
 var express = require('express');
 var serveStatic = require('serve-static');
 

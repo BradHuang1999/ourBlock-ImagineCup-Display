@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/BradHuang1999/ourBlock-ImagineCup-Display#readme",
   "dependencies": {
+    "applicationinsights": "^1.2.0",
     "express": "^4.16.4",
     "serve-static": "^1.13.2"
   }
