@@ -1,11 +1,5 @@
 @if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
 
-call npm install
-call cd police-view
-call npm install
-call npm run build
-call cd ..
-
 :: ----------------------
 :: KUDU Deployment Script
 :: Version: 1.0.17
@@ -106,7 +100,24 @@ call :SelectNodeVersion
 :: 3. Install npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
+
+  echo Now deploying. Let's go!!!
+
+  echo BRAD: CD NPM INSTALL
   call :ExecuteCmd !NPM_CMD! install --production
+
+  echo BRAD: CD POLICE_VIEW
+  call cd police-view
+
+  echo BRAD: NPM INSTALL
+  call !NPM_CMD! install --production
+
+  echo BRAD: NPM RUN BUILD
+  call !NPM_CMD! run build
+
+  echo BRAD: CD ..
+  call cd ..
+
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
