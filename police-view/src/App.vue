@@ -1,7 +1,7 @@
 <template>
   <div class="md-layout">
     <md-content 
-      class="md-layout-item md-size-30"
+      class="md-layout-item md-size-30 md-scrollbar"
       style="position: relative; overflow: auto;"
       id="leftTab"
     >
@@ -9,7 +9,11 @@
         <img src="./assets/frontPageLogoClear.png" width="150" style="padding: 10px">
       </center>
       <md-content class="md-elevation-2">
-        <h4> Crimes by Time, Categorized</h4>
+        <h4> Crime Status Breakdown </h4>
+        <Piegraph :pie-data="statsPie"/>
+      </md-content>
+      <md-content class="md-elevation-2">
+        <h4> Crimes by Time of Day, Categorized</h4>
         <Linegraph />
       </md-content>
       <md-content class="md-elevation-2">
@@ -40,8 +44,9 @@
       />
     </md-content>
 
-    <md-content class="md-layout-item md-size-30 md-scrollbar">
-      <md-content 
+    <md-content class="md-layout-item md-size-30">
+      <md-content
+        class="md-scrollbar"
         style="position: relative; overflow: auto;"
         id="rightTab"
       >
@@ -52,13 +57,6 @@
           :selectedId="selectedId"
           :screenHeight="screenHeight"
         ></Card>
-      </md-content>
-      <md-content 
-        class="md-elevation-2"
-        style="margin-bottom=0"
-      >
-        <h4> Crime Status Breakdown </h4>
-        <Piegraph :pie-data="statsPie"/>
       </md-content>
     </md-content>
   </div>
@@ -79,7 +77,7 @@
     var leftTab = document.getElementById("leftTab");
     var rightTab = document.getElementById("rightTab");
     leftTab.style.height = this.screenHeight + "px";
-    rightTab.style.height = this.screenHeight - 198 + "px";
+    rightTab.style.height = this.screenHeight + "px";
   }
 
   export default {
@@ -204,10 +202,11 @@
 
   .md-elevation-2 {
     padding: 8px;
-    margin-left: 8px;
-    margin-right: 8px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin: 4px;
     display: block;
+  }
+
+  #middleTab {
+    padding-left: 10px;
   }
 </style>

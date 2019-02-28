@@ -53,11 +53,8 @@ export default {
 
       options: {
         curveType: 'function',
-        height: 180,
-        legend: { position: 'none' },
+        height: 240,
         hAxis: { 
-          maxValue: 24,
-          gridlines: 8,
           titleTextStyle: { position: 'none' }, 
           position: 'none'
         }
@@ -75,6 +72,6 @@ export default {
 
 <style>
   #GLineGraph{
-    height: 180px;
+    height: 245px;
   }
 </style>

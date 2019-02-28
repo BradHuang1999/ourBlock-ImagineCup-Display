@@ -2150,7 +2150,7 @@ export default {
     chartOptions () {
       if (!this.chartsLib) return null
       return this.chartsLib.charts.Scatter.convertOptions({
-        height: 200,
+        height: 350,
         legend: {
           position: 'none',
         }
@@ -2167,6 +2167,6 @@ export default {
 
 <style scoped>
   #GScatterGraph{
-    height: 200px;
+    height: 350px;
   }
 </style>

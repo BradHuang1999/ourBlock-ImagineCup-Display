@@ -42,29 +42,6 @@ export default {
       }
     }
   },
-   /*computed: {
-     chartOptions () {
-       if (!this.chartsLib) return null
-       console.log(this)
-       console.log(this.chartsLib)
-       console.log(this.chartsLib.visualization.PieChart.convertOptions)
-       return this.chartsLib.charts.Pie.convertOptions({
-         chart: {
-           title: 'Crime Status - PieGraph',
-         },
-         legend: {
-           position: 'none',    
-         },
-         options: {
-           pieHole: 0.4,
-         },
-         //bars: 'horizontal', // Required for Material Bar Charts.
-         //hAxis: { format: 'decimal' },
-         //height: 400,
-         //colors: ['#1b9e77', '#d95f02', '#7570b3']
-       })
-     }
-   },*/
 
   methods: {
     onChartReady (chart, google) {
