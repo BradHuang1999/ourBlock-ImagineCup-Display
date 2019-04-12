@@ -101,7 +101,7 @@ call :SelectNodeVersion
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
 
-  echo Now deploying. Let's go
+  echo Now deploying. GOGOGO
 
   echo BRAD: NPM INSTALL
   call :ExecuteCmd !NPM_CMD! install --production
@@ -110,13 +110,10 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   call cd police-view
 
   echo BRAD: NPM INSTALL
-  call !NPM_CMD! install --production
-
-  echo BRAD: NPM INSTALL VUE_CLI
-  call !NPM_CMD! install -g @vue/cli
+  call :ExecuteCmd !NPM_CMD! install --production
 
   echo BRAD: NPM RUN BUILD
-  call !NPM_CMD! run build
+  call :ExecuteCmd !NPM_CMD! run build
 
   echo BRAD: CD ..
   call cd ..
