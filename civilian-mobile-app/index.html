@@ -27,7 +27,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <style>
     #map {
-      zoom: 100%;
+      zoom: 150%;
       height: 80%;
       position: absolute;
       top: 10%;
@@ -447,11 +447,6 @@
 
   <script>
     function solveCase(id) {
-      console.log({
-        'reportId': id,
-        'field': 'status',
-        'value': 'solved by public'
-      })
       axios.post('https://gony0gqug0.execute-api.us-east-1.amazonaws.com/beta/update', {
         'reportId': id,
         'field': 'status',
@@ -495,7 +490,7 @@
       vm.viewing = 'map';
       $("#profile-image").attr('src', "./assets/profile-pictures/profile-" + element.id + ".png");
       getTokens();
-      setInterval(getTokens, 3 * 1000);
+      setInterval(getTokens, 10 * 1000);
       getNotifs();
       setInterval(getNotifs, 3 * 1000);
       getLocation();
@@ -521,7 +516,7 @@
         'anonymous': vm.reportPrivacy,
         'message': description
       }).then(function (res) {
-        console.log(res);
+        // console.log(res);
         clickMap();
 
         var newReportId = res.data.post_output.substring(9, 29);
@@ -605,7 +600,7 @@
         'currLon': vm.location.lon,
         'role': 'police'
       }).then(function (res) {
-        console.log(res.data);
+        // console.log(res.data);
         vm.reports = res.data;
         vm.viewing = 'map';
         instance.open();
@@ -633,13 +628,12 @@
 
       function postSearch() {
         var boundsBodySearch = getMapBounds();
-        console.log(boundsBodySearch);
         axios.post('https://gony0gqug0.execute-api.us-east-1.amazonaws.com/beta/search', {
           location: boundsBodySearch,
           select: 'lon lat'
         }).then(function (res) {
-          console.log(res.data);
-          for (var i = 0; i < points.length; i++) {
+          const l = points.length;
+          for (var i = 0; i < l; i++) {
             points.pop();
           }
           for (var i = 0; i < res.data.length; i++) {
@@ -655,7 +649,7 @@
           lat: 37.7835229,
           lng: -122.4036683
         },
-        zoom: 15
+        zoom: 16
       });
 
       points = new google.maps.MVCArray;
@@ -675,14 +669,13 @@
             data: points,
             map: map
           });
-          heatmap.set('radius', 18);
-          heatmap.set('opacity', 0.5);
+          heatmap.set('radius', 20);
+          heatmap.set('opacity', 0.45);
         });
         google.maps.event.removeListener(initListener);
       });
 
-      map.addListener('dragend', postSearch);
-      map.addListener('zoom_changed', postSearch);
+      map.addListener('idle', postSearch);
     }
   </script>
 
@@ -715,6 +708,7 @@
           getNotifs();
         }
       });
+      console.log(points.length);
     }
 
     function getTokens() {
